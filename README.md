@@ -6,6 +6,10 @@
 
 This is a docker container for JR Concurrent Language programming
 
+# For clone repo
+
+git clone https://github.com/luisf09/jr_docker_ic.git
+
 # For use container
 
 docker compose up -d
