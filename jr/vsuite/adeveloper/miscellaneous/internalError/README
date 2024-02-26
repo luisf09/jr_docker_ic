@@ -1,0 +1,4 @@
+2007-03-23 discovered internal error, also present in jdk1.5.0_07 for
+           java program; memorialize it here in case see it again...
+
+2011-08-12 fixed in Java 1.7, so changed java test.

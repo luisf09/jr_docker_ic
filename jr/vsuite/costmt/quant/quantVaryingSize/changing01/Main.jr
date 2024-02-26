@@ -1,0 +1,26 @@
+public class Main {
+    public static void main(String [] args){
+	System.out.println("begin");
+	int rounds = 3;
+	for (int r = 0; r < rounds; r++) {
+	    System.out.println("++++ round: "+r);
+
+	    // empty quant: depending on value of r
+	    int go1 = (r<rounds-1)?1:0;
+	    int go2 = (r>0)?1:0;
+	    System.out.println("==== round: go1="+go1+" go2="+go2);
+	    co ((int i = 1; i <= go1; i++)) call p(i) {
+	  	System.out.println("after1: "+i);
+	    }
+	    [] ((int i = 1; i <= go2; i++)) call p(i) {
+		System.out.println("after2: "+i);
+	    }
+	    System.out.println("---- round: "+r);
+	}
+	System.out.println("done");
+    }
+
+    private static op void p(int i) {
+	System.out.println("p: "+i);
+    }
+}

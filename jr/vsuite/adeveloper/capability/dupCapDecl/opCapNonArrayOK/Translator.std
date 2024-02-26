@@ -1,0 +1,5 @@
+Model.jr:5: workerRequest is already defined in Model
+  private static op double workerRequest(char);
+                           ^
+Not generating jrGen/Model.java due to errors.
+1 error

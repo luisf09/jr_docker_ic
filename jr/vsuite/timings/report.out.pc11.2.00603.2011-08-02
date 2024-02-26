@@ -1,0 +1,32 @@
+
+
+
+JR Timing Results
+
+Tue Aug  2 13:23:11 PDT 2011
+hostname: pc11
+jr compiler version "2.00603 (Thu Jul 15 14:18:10 PDT 2010)"
+jr rts version "2.00603 (Thu Jul 15 14:18:15 PDT 2010)"
+javac 1.6.0_21
+java version "1.6.0_21"
+
+Results are given in microseconds
+
+     times    mean  median  test
+
+    500000    0.02    0.03  loop control overhead
+
+    100000  575.30  510.15  local call, optimized
+     10000  984.20  785.00  interresource call, no new process
+      2000 1072.50 1187.50  interresource call, new process
+      5000  392.80  433.00  process create/destroy
+
+    200000 2154.47 2157.30  semaphore P only
+    200000    3.15    1.10  semaphore V only
+    200000 2055.41 2042.75  semaphore pair
+     10000 1843.80 1486.00  semaphore requiring context switch
+
+     10000 2647.80 2220.00  asynchronous send/receive
+      5000 2312.80 1855.00  message passing requiring context switch
+
+      2000 5841.00 4740.00  rendezvous

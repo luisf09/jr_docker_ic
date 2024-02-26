@@ -1,0 +1,5 @@
+minimum.jr:12: rcvMinCount is already defined in op void element()
+     inni void f(int rcvMinCount){
+                     ^
+Not generating jrGen/minimum.java due to errors.
+1 error

@@ -1,0 +1,9 @@
+public class MyInteger {
+  private int val;
+  public MyInteger(int val) {
+    this.val = val;
+  }
+  public op int getValue() {
+    return val;
+  }
+}

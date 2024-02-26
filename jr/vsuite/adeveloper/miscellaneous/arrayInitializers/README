@@ -1,0 +1,8 @@
+2012-04-18 student in ECS140B WQ discovered this bug, e.g.,
+
+	   cap void (int) a [] = {f, f};
+
+	   doesn't work (generates wrong code for f).
+	   surprised didn't occur previously.
+	   fixed (though seems like some of this code could be
+	   combined w/ other related code)

@@ -1,0 +1,19 @@
+public class Main {
+    public static void main(String [] args){
+	System.out.println("begin");
+	int N = 2;
+	for (int r = N; r >= 1; r--) {
+	    System.out.println("++++ round: "+r);
+
+	    co ((int i = 1; i <= r; i++)) call p(i) {
+	  	System.out.println("after1: "+i);
+	    }
+	    System.out.println("---- round: "+r);
+	}
+	System.out.println("done");
+    }
+
+    private static op void p(int i) {
+	System.out.println("p: "+i);
+    }
+}

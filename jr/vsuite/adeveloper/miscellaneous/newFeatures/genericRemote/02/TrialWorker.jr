@@ -1,0 +1,25 @@
+import java.util.Vector;
+import edu.ucdavis.jr.JR;
+
+public class TrialWorker{
+	private Vector<Vector<Object>> board;
+        private int dim, nTrials;
+		
+	public TrialWorker(int dim, Vector<Vector<Object>> board, int nTrials){
+		this.dim = dim;
+		this.board = board;
+		this.nTrials = nTrials;
+	}
+
+        public op void print() {
+	  System.out.println("+TW print "+ dim + " " + nTrials);
+	  for (Vector<Object> v: board) {
+	    System.out.println("   row:");
+	    for (Object o: v) {
+	      System.out.println(o);
+	    }
+	  }
+	  System.out.println("-TW print");
+	}
+
+}

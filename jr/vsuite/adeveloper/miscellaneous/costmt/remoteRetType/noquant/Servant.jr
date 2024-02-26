@@ -1,0 +1,12 @@
+public class Servant {
+
+    int id;
+
+    public Servant(int id) {
+        this.id = id;
+    }
+    private process server {
+    	System.out.println("server "+id);
+    }
+
+}

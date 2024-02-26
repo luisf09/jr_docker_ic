@@ -1,0 +1,22 @@
+import edu.ucdavis.jr.JR;
+
+public class Main {
+
+    public static void main(String [] args) {
+
+        int n = 5;
+
+        remote Servant s1, s2;
+        System.out.println("Main starts");
+	co s1 = do1(1);
+	[] s2 = do1(2);
+
+        System.out.println("before start computation");
+    }
+    private static op remote Servant do1(int i) {
+        remote Servant si;
+        si = new remote Servant(i);
+	return si;
+    }
+
+}

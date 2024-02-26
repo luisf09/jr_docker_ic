@@ -1,0 +1,13 @@
+public class Main{
+	public static void main(String[] args){
+		System.out.println("----- DEBUG: REACHED START OF MAIN -----");
+		Maze m = new Maze(10,10);
+		m.Print();
+		
+		Window w = new Window("JR: BFS Maze Solver");
+		w.SetMaze(m);
+
+
+		System.out.println("----- DEBUG: REACHED END OF MAIN -----");
+	}
+}

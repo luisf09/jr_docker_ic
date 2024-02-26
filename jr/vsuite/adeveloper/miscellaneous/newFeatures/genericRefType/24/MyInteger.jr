@@ -1,0 +1,18 @@
+public class MyInteger implements java.io.Serializable {
+  private int val;
+  public MyInteger(int val) {
+    this.val = val;
+  }
+  public op int getValue() {
+    return val;
+  }
+  public op void setValue(int val) {
+    this.val = val;
+  }
+  public int localGetValue() {
+    return val;
+  }
+  public op MyInteger getThis() {
+    return this;
+  }
+}

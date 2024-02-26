@@ -1,0 +1,8 @@
+Main.jr:5: illegal initializer for cap void(int)
+     cap void (int) [] o = {{f1,f1}, {f1,f1}};
+                            ^
+Main.jr:5: illegal initializer for cap void(int)
+     cap void (int) [] o = {{f1,f1}, {f1,f1}};
+                                     ^
+Not generating jrGen/Main.java due to errors.
+2 errors

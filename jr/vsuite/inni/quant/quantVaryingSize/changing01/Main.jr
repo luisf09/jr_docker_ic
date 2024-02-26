@@ -1,0 +1,29 @@
+public class Main {
+    private static op void p(int);
+    public static void main(String [] args){
+	System.out.println("begin");
+	int rounds = 3;
+	for (int r = 0; r < rounds; r++) {
+	    System.out.println("++++ round: "+r);
+
+	    send p(r*100);
+
+	    // empty quant: depending on value of r
+	    int go1 = (r<rounds-1)?1:0;
+	    int go2 = (r>0)?1:0;
+	    System.out.println("==== round: go1="+go1+" go2="+go2);
+	    // nondeterministic as to which arm will service p
+	    // (when both are enabled)
+	    // but deterministic w/i our implementation.
+	    inni ((int i = 1; i <= go1; i++)) void p(int k) {
+	  	System.out.println("p1: "+k);
+	    }
+	    [] ((int i = 1; i <= go2; i++)) void p(int k) {
+		System.out.println("p2: "+k);
+	    }
+	    System.out.println("---- round: "+r);
+	}
+	System.out.println("done");
+    }
+
+}

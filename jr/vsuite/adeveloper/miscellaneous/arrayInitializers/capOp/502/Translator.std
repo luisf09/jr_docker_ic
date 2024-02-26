@@ -1,0 +1,5 @@
+Main.jr:5: illegal initializer for cap void(int)
+     cap void (int) o = {{f1,null,f1}, {f1,noop,f1, new op void (int)}};
+                        ^
+Not generating jrGen/Main.java due to errors.
+1 error

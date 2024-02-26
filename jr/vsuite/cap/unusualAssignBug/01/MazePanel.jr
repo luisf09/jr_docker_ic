@@ -1,0 +1,47 @@
+import javax.swing.*;
+import java.awt.*;
+
+public class MazePanel extends JPanel{
+	private Maze m_maze;
+	private  cap void(Cell) m_update;
+
+	//***** CONSTRUCTOR *****//
+	public MazePanel(){
+		this(null);
+	}
+	public MazePanel(Maze m){
+		SetMaze(m);
+	}
+
+
+	//***** GUI METHODS *****//
+	public void paintComponent(Graphics g){
+		Cell toUpdate = null;
+
+		super.paintComponent(g);
+
+		receive m_update(toUpdate);
+
+		if(toUpdate!=null){
+			toUpdate.Render(g);
+		}
+		//toUpdate.Render(g);
+//		for(int i=0; i<m_maze.GetGridWidth(); i++){
+//			for(int j=0; j<m_maze.GetGridHeight(); j++){
+//				(m_maze.GetCell(i,j)).Render(g);
+//			}
+//		}
+	}
+
+	//***** SET METHODS *****//
+	public void SetMaze(Maze m){
+		m_maze = m;
+
+		if(m!=null){
+			setSize(m.GetGridWidth()*25,m.GetGridHeight()*25);
+		}
+	}
+	public void SetUpdate(cap void(Cell) update){
+		m_update = update;
+	}
+}

@@ -1,0 +1,21 @@
+import java.util.*;
+
+public class minimum {
+
+  private static op void passValue (int, int, int);
+
+   public static void main(String [] args) {
+   }
+
+   // the element "processes"
+   private static process element {
+	send passValue(9,4,3);
+        while(true){
+            inni void passValue(int x, int y, int z){
+	      System.out.println(x+" "+y+" "+z);
+		  break;
+            }
+        }
+	System.out.println("done");
+  }
+}

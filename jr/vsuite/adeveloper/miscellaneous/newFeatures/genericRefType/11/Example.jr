@@ -1,0 +1,17 @@
+import edu.ucdavis.jr.JR;
+import java.util.ArrayList;
+
+public class Example {
+    public static void main(String [] args) {
+      remote MyInteger [] myarray = new remote MyInteger [5];
+      for (int i = 0; i < myarray.length; i++) {
+	myarray[i] = new remote MyInteger(i+800);
+      }
+      System.out.println("It ran.");
+      for (remote MyInteger i: myarray) {
+	System.out.println(i.getValue());
+      }
+      System.out.println("It ran.");
+    }
+
+}

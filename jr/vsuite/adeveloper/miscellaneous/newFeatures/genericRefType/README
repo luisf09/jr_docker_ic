@@ -1,0 +1,14 @@
+2013-03-17 suprised hadn't caught main bug earlier, not allowing, e.g.,
+
+    ArrayList<remote X>
+
+also tested some related stuff, which I'm leaving here since I'm not
+sure we test for it elsewhere.
+
+For the 2x tests:
+
+    shouldn't be able to cast remote to local
+    can always have op in remote return this, as in 22
+    and should leave that up to user since 22 won't work if on diff VM, see 23
+    but if make serializable then it will
+    but need to be careful as in 24

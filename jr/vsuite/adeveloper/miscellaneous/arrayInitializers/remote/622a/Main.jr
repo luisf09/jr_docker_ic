@@ -1,0 +1,9 @@
+public class Main {
+   public static void main(String[] args) {
+
+     remote S s1 = new remote S();
+     remote S [] b = {s1,s1};
+     remote S [][] a = {b, {s1}, b};
+
+   }
+}

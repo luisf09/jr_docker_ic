@@ -1,0 +1,23 @@
+import java.util.ArrayList;
+
+// observed: works fine
+//   if extend non-imported class
+//   if no extend
+     // public class MazePanel {
+public class MazePanel extends ArrayList {
+
+  public cap void() m_update = foo;
+  cap void() removeAll = goo;
+
+  public op void foo() {
+    System.out.println("foo");
+  }
+
+  public op void goo() {
+    System.out.println("goo");
+  }
+
+  public void setUpdate() {
+    m_update = removeAll;
+  }
+}

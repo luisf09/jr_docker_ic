@@ -1,0 +1,17 @@
+Main.jr:6: incompatible types
+found   : int
+required: remote S
+     remote S [] a = {3, 4, 5};
+                      ^
+Main.jr:6: incompatible types
+found   : int
+required: remote S
+     remote S [] a = {3, 4, 5};
+                         ^
+Main.jr:6: incompatible types
+found   : int
+required: remote S
+     remote S [] a = {3, 4, 5};
+                            ^
+Not generating jrGen/Main.java due to errors.
+3 errors

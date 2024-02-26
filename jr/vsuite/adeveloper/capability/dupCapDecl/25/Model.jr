@@ -1,0 +1,11 @@
+import edu.ucdavis.jr.JR;
+public class Model {
+
+  private static final int W = 10; // number of workers
+  // declare an array of operations for workers to service
+  // and initialize the array
+  private static cap double (char) workerRequest [] [] ;
+  private static op double workerRequest(char);
+  public static void main(String [] args) {
+  }
+}

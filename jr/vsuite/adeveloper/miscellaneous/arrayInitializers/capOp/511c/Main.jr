@@ -1,0 +1,26 @@
+public class Main {
+   public static void main(String[] args) {
+
+     op void f1(int);
+     cap void (int) c = f1;
+     cap void (int) [] o1 = {c,c,c};
+     cap void (int) [] o2 = o1;
+     cap void (int) [] o3 = (((o1)));
+
+     send f1(1);
+     send c(2);
+     send o1[2](3);
+     send o2[1](4);
+     send o2[0](5);
+     send o2[1](6);
+     send o2[2](7);
+
+     while (f1.length() > 0) {
+       int y;
+       receive f1(y);
+       System.out.println("f1 got "+y);
+     }
+
+   }
+
+}

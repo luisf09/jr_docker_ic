@@ -1,0 +1,157 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+import edu.ucdavis.jr.JR;
+import java.util.ArrayList;
+import javax.swing.BorderFactory;
+
+public class Window extends JFrame{
+	private Maze       m_maze;
+	private MazeSolver m_solver;
+	private MazePanel  m_mainPanel;
+
+
+	//***** CONSTRUCTOR *****//
+	public Window(String title){
+		super(title);
+
+		Init();
+
+		send Manager();
+	}
+
+	
+	//***** GUI MANAGEMENT *****//
+	private op void updatePath(Space);						// op sent to maze solver
+	private op void updatePanel(Cell);						// op sent to maze panel
+	private op void solFound(int,ArrayList<Space>);			// op sent to maze solver
+	private op void Manager(){
+		if(m_maze==null){ return; }
+
+
+		for(int i=0; i<m_maze.GetGridWidth(); i++){
+			for(int j=0; j<m_maze.GetGridHeight(); j++){
+				send updatePanel(m_maze.GetCell(i,j));
+			}
+		}
+//		send m_solver.SolveMaze(m_maze,updatePath,solFound);
+
+		while(true){
+//			inni void UpdatePath(Space s) st solFound.length()==0{
+//				send updatePanel(s);
+//			}
+//			[] void solFound(int workerId, ArrayList<Space> path){
+//			}
+			receive dummy();
+			repaint();
+		}
+	}
+	private op void dummy();
+
+
+	//***** INIT *****//
+	private void Init(){
+		m_solver = new MazeSolver();
+
+		InitGeneral();
+		InitButtons();
+		InitListeners();
+
+		setVisible(true);
+	}
+	private void InitGeneral(){
+		setLocationRelativeTo(null);
+
+		Container contentPane = getContentPane();
+		contentPane.setLayout(null);
+		contentPane.setBackground(Color.WHITE);
+		m_mainPanel   = new MazePanel();
+		//m_mainPanel.m_update = updatePanel;
+	//	m_mainPanel.SetUpdate(updatePanel);
+		contentPane.add(m_mainPanel);
+	}
+	private void InitButtons(){
+		JMenuBar bar   = new JMenuBar();
+		JMenu maze     = new JMenu("Maze");
+		JMenu settings = new JMenu("Settings");
+
+		bar.add(maze);
+		bar.add(settings);
+
+		JMenuItem newMaze = new JMenuItem("New Maze");
+		newMaze.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent ae){
+				int width = 0;
+				int height = 0;
+				boolean success = true;
+				String input = "";
+
+				do{	
+					success = true;
+					input = JOptionPane.showInputDialog("Enter Width","");
+
+					if(input==null){ return; }
+
+					try{
+						width = Integer.parseInt(input);
+					} catch(Exception e){ 
+						success = false; 
+						JOptionPane.showMessageDialog(null,"Invalid integer. Try again.");
+					}
+				} while(!success);
+
+				do{
+					success = true;
+					input = JOptionPane.showInputDialog("Enter Height","");
+				
+					if(input==null){ return; }
+
+					try{
+						height = Integer.parseInt(input);
+					} catch(Exception e){ success = false; }
+				} while(!success);
+
+				System.out.println(width+" x "+height);
+			}
+		});
+
+		JMenuItem exit = new JMenuItem("Exit");
+		exit.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent ae){
+				JR.exit(0);
+			}
+		});
+
+		maze.add(newMaze);
+		maze.add(new JSeparator());
+		maze.add(exit);
+		setJMenuBar(bar);
+		pack();
+	}
+	private void InitListeners(){
+		addWindowListener(new WindowAdapter(){
+			public void windowClosing(WindowEvent we){
+				JR.exit(0);
+			}
+		});
+	}
+	
+
+
+	//***** SET METHODS *****//
+	public void SetMaze(Maze m){
+		m_maze = m;
+		
+		int frameWidth  = (Const.SCALE * m.GetGridWidth())  + 2*Const.SCALE;
+		int frameHeight = (Const.SCALE * m.GetGridHeight()) + 2*Const.SCALE+20;
+		setSize(frameWidth,frameHeight);
+		m_mainPanel.SetMaze(m);
+		m_mainPanel.setLocation(Const.SCALE,Const.SCALE);
+	}
+	public void SetMainPanel(MazePanel m){
+		m_mainPanel = m;
+		setContentPane(m);
+//		m_mainPanel.m_update = updatePanel;
+		m_mainPanel.SetUpdate(updatePanel);
+	}
+}

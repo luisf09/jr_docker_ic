@@ -1,0 +1,36 @@
+import java.awt.Color;
+import java.awt.Graphics;
+
+public class VWall extends Wall{
+	//***** CONSTRUCTOR *****//
+	public VWall(int x,int y,boolean removable){
+		super(x,y,removable);
+		SetCharRep(Const.CHARREP_VWALL);
+	}
+
+
+	//***** INHEIRITED METHODS *****//
+	public Space[] GetAdjSpace(Cell[][] grid){
+		Space[] s = new Space[2];
+		int leftX  = m_x-1;
+		int rightX = m_x+1;
+
+		s[0] = (Space) grid[leftX ][m_y];
+		s[1] = (Space) grid[rightX][m_y];
+
+		return s;
+	}
+
+
+	//***** GUI *****//
+	public void Render(Graphics g){
+		g.setColor(Color.BLACK);
+		g.fillRect(m_panelX,m_panelY,Const.SCALE,Const.SCALE);
+	}
+
+
+	//***** NON-GUI *****//
+	public void Print(){
+		System.out.print(m_charRep);
+	}
+}

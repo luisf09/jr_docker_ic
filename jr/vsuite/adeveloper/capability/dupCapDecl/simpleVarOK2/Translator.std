@@ -1,0 +1,8 @@
+Model.jr:8: workerRequest is already defined in Model
+  cap double (char) workerRequest [] =
+                    ^
+Model.jr:12: array required, but int found
+      workerRequest[i] = new op double (char);
+                   ^
+Not generating jrGen/Model.java due to errors.
+2 errors

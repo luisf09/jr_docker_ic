@@ -1,0 +1,14 @@
+public class Main {
+  static op void f1(int,int);
+  static cap void (int,int) c = f1;
+  static cap void (int,int) [] o1 = {c,c};
+   public static void main(String[] args) {
+
+     cap void (int,int) [][] o2 = {o1};
+     //     cap void (int) [][] o2;
+     //     o2 = new cap void (int) [3][3];
+
+     // {{f1,null,f1}, o1, o1};
+
+   }
+}

@@ -1,0 +1,12 @@
+version: "3"
+services:
+  # ubuntu 
+  ubuntu:
+    build: .
+    container_name: jr_docker
+    restart: always
+    command: ["sleep","infinity"]
+    volumes:
+      - './jr_programs/:/jr_code:rw'
+      - './jr/:/usr/local/jr:rw'
+    network_mode: bridge

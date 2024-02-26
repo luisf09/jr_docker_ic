@@ -1,0 +1,10 @@
+public class Main {
+   public static void main(String[] args) {
+
+     op void f1(int);
+     cap void (int) c = f1;
+     cap void (int) [] o1 = {c};
+     cap void (int) [][] o2 = {o1};
+
+   }
+}

@@ -1,0 +1,25 @@
+import edu.ucdavis.jr.JR;
+import java.util.ArrayList;
+
+public class Example {
+    public static void main(String [] args) {
+      Object o = new remote MyInteger(33) on new vm() on "localhost";
+      ArrayList<Object> myarray = new ArrayList<Object>();
+      myarray.add(o);
+      for (Object m: myarray) {
+	remote MyInteger i = (remote MyInteger) m;
+	System.out.println(i.getValue());
+	MyInteger ii = i.getThis();
+	System.out.println(ii.localGetValue());
+	// now for the fun?
+	i.setValue(i.getValue()+1000);
+	System.out.println(i.getValue());
+	System.out.println(ii.localGetValue());
+	// but if we do it again, then all's well
+	ii = i.getThis();
+	System.out.println(ii.localGetValue());
+      }
+      System.out.println("It ran.");
+    }
+
+}

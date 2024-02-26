@@ -1,0 +1,14 @@
+begin
+++++ round: 0
+==== round: go1=1 go2=0
+p1: 0
+---- round: 0
+++++ round: 1
+==== round: go1=1 go2=1
+p1: 100
+---- round: 1
+++++ round: 2
+==== round: go1=0 go2=1
+p2: 200
+---- round: 2
+done

@@ -1,0 +1,5 @@
+0 jrc *.jr
+0 javac jrGen/*.java
+# don't run this one since it pops up an X window
+# 0 run Main
+0 rm -rf jrGen *.out

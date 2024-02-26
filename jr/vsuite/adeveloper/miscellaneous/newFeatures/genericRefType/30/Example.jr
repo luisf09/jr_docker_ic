@@ -1,0 +1,10 @@
+import edu.ucdavis.jr.JR;
+import java.util.ArrayList;
+
+public class Example {
+    public static void main(String [] args) {
+        ArrayList<vm> myarray = new ArrayList<vm>();
+        System.out.println("It ran.");
+    }
+
+}

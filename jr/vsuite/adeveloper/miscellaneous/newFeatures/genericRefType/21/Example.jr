@@ -1,0 +1,15 @@
+import edu.ucdavis.jr.JR;
+import java.util.ArrayList;
+
+public class Example {
+    public static void main(String [] args) {
+      Object o = new remote MyInteger(33);
+      ArrayList<Object> myarray = new ArrayList<Object>();
+      myarray.add(o);
+      for (Object m: myarray) {
+	MyInteger i = (MyInteger) m;
+      }
+      System.out.println("It ran.");
+    }
+
+}

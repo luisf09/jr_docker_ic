@@ -1,0 +1,5 @@
+class M {
+  public void update(int x) {
+  }
+}
+

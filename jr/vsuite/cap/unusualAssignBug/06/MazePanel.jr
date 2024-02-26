@@ -1,0 +1,15 @@
+import javax.swing.*;
+
+// observed: works fine
+//   if extend non-imported class
+//   if no extend
+public class MazePanel extends JPanel {
+	private  cap void() m_update;
+
+	public MazePanel(){
+	}
+
+	public void SetUpdate(cap void() update){
+	  m_update = update;
+	}
+}

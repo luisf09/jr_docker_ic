@@ -1,0 +1,5 @@
+minimum.jr:11: k is already defined in element(int)
+     inni void f(int k){
+                     ^
+Not generating jrGen/minimum.java due to errors.
+1 error

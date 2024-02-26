@@ -1,0 +1,8 @@
+// dynamic arrays of ops
+
+public class r
+{
+  remote S s1;
+  remote S [] a = s1;
+
+}

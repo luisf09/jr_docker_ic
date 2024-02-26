@@ -1,0 +1,11 @@
+Main.java:4: error: cannot find symbol
+      window = new Window(iii);
+                          ^
+  symbol:   variable iii
+  location: class Main
+Main.java:6: error: cannot find symbol
+      rWindow = new Window(iii);
+                           ^
+  symbol:   variable iii
+  location: class Main
+2 errors

@@ -1,0 +1,15 @@
+import java.io.*;
+import java.util.*;
+
+public class minimum {
+
+   public static void main(String [] args) {
+   }
+
+   private static op void element() {
+     int rcvMinCount;
+     op void f(int);
+     inni void f(int rcvMinCount){
+     }
+   }
+}

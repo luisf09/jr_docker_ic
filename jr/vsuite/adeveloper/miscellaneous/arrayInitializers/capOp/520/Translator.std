@@ -1,0 +1,7 @@
+Main.jr:5: unexpected type
+required: value
+found   : operation
+     cap void (int) [][] o = f1;
+                             ^
+Not generating jrGen/Main.java due to errors.
+1 error

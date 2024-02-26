@@ -1,0 +1,21 @@
+import edu.ucdavis.jr.JR;
+import java.util.ArrayList;
+
+public class Example {
+    public static void main(String [] args) {
+      ArrayList<Myvm> myarray = new ArrayList<Myvm>();
+      Myvm vm1 = new Myvm(111);
+      Myvm vm2 = new Myvm(222);
+      myarray.add(vm1);
+      myarray.add(vm2);
+      remote MyInteger my1 = new remote MyInteger(34) on vm1;
+      remote MyInteger my2 = new remote MyInteger(45) on vm2;
+      for (Myvm m: myarray) {
+	// loop works, but not much can do, e.g.,
+	//   System.out.println(m.getId());
+	// doesn't work
+      }
+      System.out.println("It ran.");
+    }
+
+}

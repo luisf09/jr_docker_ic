@@ -1,0 +1,3 @@
+2012-10-02 bug: could redeclare cap at class level
+	   used 2nd declaration (which often lead to other errors)
+	   (local was OK)

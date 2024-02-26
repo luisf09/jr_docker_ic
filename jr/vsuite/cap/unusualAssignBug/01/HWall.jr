@@ -1,0 +1,36 @@
+import java.awt.Color;
+import java.awt.Graphics;
+
+public class HWall extends Wall{
+	//***** CONSTRUCTOR *****//
+	public HWall(int x,int y,boolean removable){
+		super(x,y,removable);
+		SetCharRep(Const.CHARREP_HWALL);
+	}
+
+
+	//***** INHEIRITED METHODS *****//
+	public Space[] GetAdjSpace(Cell[][] grid){
+		Space[] s = new Space[2];
+		int topY = m_y-1;
+		int botY = m_y+1;
+
+		s[0] = (Space) grid[m_x][topY];
+		s[1] = (Space) grid[m_x][botY];
+
+		return s;
+	}
+
+
+	//***** GUI *****//
+	public void Render(Graphics g){
+		g.setColor(Color.BLACK);
+		g.fillRect(m_panelX,m_panelY,Const.SCALE,Const.SCALE);
+	}
+
+
+	//***** NON-GUI *****//
+	public void Print(){
+		System.out.print(m_charRep);
+	}
+}

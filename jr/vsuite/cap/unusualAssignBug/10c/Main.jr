@@ -1,0 +1,10 @@
+public class Main{
+	public static void main(String[] args){
+	  MazePanel mp = new MazePanel();
+	  mp.foo();
+	  mp.goo();
+	  mp.m_update();
+	  mp.setUpdate();
+	  mp.m_update();
+	}
+}

@@ -1,0 +1,23 @@
+import java.io.*;
+import java.util.*;
+
+public class minimum {
+
+   private static cap void (int) passValue;
+
+   public static void main(String [] args) {
+   }
+
+  // w/o op: fine
+  //   private static void element() {
+  // doesn't matter whether inni is for op or cap.
+  // doesn't matter whether id is parameter to element or local variable.
+
+  private static op void element() {
+     op void f(int);
+     inni void f(int rcvMinCount){
+       int w;
+       int rcvMinCount;
+     }
+   }
+}

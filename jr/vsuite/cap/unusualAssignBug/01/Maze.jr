@@ -1,0 +1,88 @@
+public class Maze{
+	private int 	 m_height;
+	private int 	 m_width;
+	private int 	 m_gridHeight;
+	private int      m_gridWidth;
+	private Cell[][] m_grid;
+
+	
+	//***** CONSTRUCTOR *****//
+	public Maze(int height,int width){
+		SetHeight(height);
+		SetWidth(width);
+		SetGrid(InitMaze(height,width));
+	}
+	public Maze(int height,int width,Cell[][] grid){
+		SetHeight(height);
+		SetWidth(width);
+		SetGrid(grid);
+	}
+	
+	
+	//***** INIT *****//
+	public Cell[][] InitMaze(int height, int width){
+		MazeGenerator mg = new MazeGenerator();
+		return mg.GenMaze(height,width);
+	}
+
+
+	//***** SET METHODS *****//
+	private void SetHeight(int height){
+		m_height = height;
+		SetGridHeight(height);
+	}
+	private void SetWidth(int width){
+		m_width = width;
+		SetGridWidth(width);
+	}
+	private void SetGridHeight(int height){
+		m_gridHeight = 2*height+1;
+	}
+	private void SetGridWidth(int width){
+		m_gridWidth = 2*width+1;
+	}
+	private void SetGrid(Cell[][] grid){
+		m_grid = grid;
+	}
+	
+
+	//***** ACCCESSOR METHODS *****//
+	public int GetHeight(){
+		return m_height;
+	}
+	public int GetWidth(){
+		return m_width;
+	}
+	public int GetGridHeight(){
+		return m_gridHeight;
+	}
+	public int GetGridWidth(){
+		return m_gridWidth;
+	}
+	public Cell[][] GetGrid(){
+		return m_grid;
+	}
+	public Cell GetCell(int x, int y){
+		return ((IsValidPos(x,y)) ? m_grid[x][y] : null);
+	}
+	public Space GetSpace(int x, int y){
+		return ((IsValidPos(x,y) && m_grid[x][y] instanceof Space) ? (Space) m_grid[x][y] : null);
+	}
+	
+
+	//***** SUPPORT METHODS *****//
+	private boolean IsValidPos(int x, int y){
+		return ((x>=0) && (x<=m_gridWidth) && (y>=0) && (y<=m_gridHeight));
+	}	
+
+	
+	//***** NON-GUI *****//
+	public void Print(){
+		for(int i=0; i<m_gridHeight; i++){
+			for(int j=0; j<m_gridWidth; j++){
+				m_grid[j][i].Print();
+			}
+			System.out.println();
+		}
+	}	
+}

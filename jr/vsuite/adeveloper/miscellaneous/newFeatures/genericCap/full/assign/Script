@@ -1,0 +1,8 @@
+0 jrc *.jr
+0 javac jrGen/*.java
+0 jrrun ResourceAllocatorM > No_input.out 2>&1
+# 2014-09-08
+# since order of elements in Set is nondeterministic, use ndscmp.
+# (really need only ndcmp, but that's not yet implemented in jrv)
+0 ndscmp No_input.out No_input.std*
+0 rm -rf jrGen core *.out

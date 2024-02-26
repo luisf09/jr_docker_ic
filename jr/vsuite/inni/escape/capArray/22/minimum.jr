@@ -1,0 +1,23 @@
+import java.util.*;
+
+public class minimum {
+
+  private static cap void (int, int, int) passValue[] = new cap void(int, int, int)[1];
+
+   public static void main(String [] args) {
+   }
+
+   // the element "processes"
+   private static process element {
+        op void f(int, int, int);
+        passValue[0] = f;
+	send f(9,4,3);
+        while(true){
+            inni void passValue[0](int x, int y, int z){
+	      System.out.println(x+" "+y+" "+z);
+		  break;
+            }
+        }
+	System.out.println("done");
+  }
+}

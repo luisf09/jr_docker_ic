@@ -1,0 +1,17 @@
+Main.jr:5: unexpected type
+required: value
+found   : operation
+     cap void (int) [][] o = {f1,noop,f1, new op void (int)};
+                              ^
+Main.jr:5: unexpected type
+required: value
+found   : operation
+     cap void (int) [][] o = {f1,noop,f1, new op void (int)};
+                                      ^
+Main.jr:5: incompatible types
+found   : cap void(int)
+required: cap void(int)[]
+     cap void (int) [][] o = {f1,noop,f1, new op void (int)};
+                                              ^
+Not generating jrGen/Main.java due to errors.
+3 errors

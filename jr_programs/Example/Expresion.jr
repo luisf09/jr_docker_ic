@@ -1,0 +1,32 @@
+import edu.ucdavis.jr.JR;
+
+public class Expresion{
+    private static float a = 10;
+    private static float b = 10;
+    private static float c = 1;
+    private static float d = 1;
+    private static float e = 2;
+    private static float f = 1;
+    private static float x;
+    private static float y;
+
+    private static process p1{
+        x = 3*a*b;
+        System.out.println(x);
+    }
+    private static process p2{
+        y = 4/(int)Math.pow((c+d),(e-f));
+        System.out.println(y);
+    }
+
+    public static void main(String[] args) {
+        try {
+			JR.registerQuiescenceAction(done);
+		} catch (edu.ucdavis.jr.QuiescenceRegistrationException e) {
+			//TODO: handle exception
+		}
+    }
+    private static op void done(){
+        System.out.println("Resultado: "+ (x+y));
+    }
+}

@@ -1,0 +1,9 @@
+public class Main {
+   public static void main(String[] args) {
+
+     remote S s1 = new remote S();
+
+     int [] a = {noop,s1,null,new remote S()};
+
+   }
+}

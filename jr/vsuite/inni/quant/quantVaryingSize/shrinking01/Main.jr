@@ -1,0 +1,21 @@
+public class Main {
+    private static op void p(int);
+    public static void main(String [] args){
+	System.out.println("begin");
+	int N = 2;
+	for (int r = N; r >= 1; r--) {
+	    System.out.println("++++ round: "+r);
+
+	    send p(r*100);
+
+	    // nondeterministic as to which "p arm" will service p
+	    // (when both are enabled)
+	    // but deterministic w/i our implementation
+	    // and doesn't matter in output.
+	    inni ((int i = 1; i <= r; i++)) void p(int k) {
+	  	System.out.println("p1: "+k);
+	    }
+	}
+	System.out.println("done");
+    }
+}

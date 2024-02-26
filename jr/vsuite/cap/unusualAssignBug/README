@@ -1,0 +1,3 @@
+2013-03-18 interesting bug: if name of cap is same as that of method
+in class being extended, then got nullPointerException.  Easy fix,
+though.

@@ -1,0 +1,42 @@
+import java.awt.Graphics;
+
+public abstract class Cell{
+	protected int  m_x;
+	protected int  m_y;
+	protected int  m_panelX;
+	protected int  m_panelY;
+	protected char m_charRep;
+
+	public Cell(int x, int y){
+		SetX(x);
+		SetY(y);
+	}
+
+	
+	//***** SET METHODS *****//
+	public void SetX(int x){
+		m_x = x;
+		m_panelX = Const.SCALE * m_x;
+	}
+	public void SetY(int y){
+		m_y = y;
+		m_panelY = Const.SCALE * m_y;
+	}
+	public void SetCharRep(char c){
+		m_charRep = c;
+	}
+
+	
+	//***** ACCESSOR METHODS *****//
+	public int GetX(){
+		return m_x;
+	}
+	public int GetY(){
+		return m_y;
+	}
+
+
+	//***** NON-GUI *****//
+	public abstract void Print();
+	public abstract void Render(Graphics g);
+}

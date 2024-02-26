@@ -1,0 +1,22 @@
+import edu.ucdavis.jr.JR;
+
+public class Main {
+
+    public static void main(String [] args) {
+
+        int N = 5;
+
+	vm vmi;
+	// 2017-06-30 not legal,
+	// but causes JR translator crash.
+	// Aaron discovered (for ../newVM running paper in OpVRe paper
+	//    this one is similar)
+	//    java.lang.NullPointerException
+	//	at edu.ucdavis.jr.trans.sun.tools.javac.comp.Attr.visitCoCall(Attr.java:2712)
+	// ...
+        System.out.println("before co computation");
+int k;
+	co k = 5;
+        System.out.println("before start computation");
+    }
+}

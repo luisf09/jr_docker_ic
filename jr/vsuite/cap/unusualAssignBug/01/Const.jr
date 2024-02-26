@@ -1,0 +1,13 @@
+public class Const{
+	//***** CHAR REP *****//
+	public static final char CHARREP_SPACE   = ' ';
+	public static final char CHARREP_HWALL   = '-';
+	public static final char CHARREP_VWALL   = '|';
+	public static final char CHARREP_IWALL   = '+';
+	public static final char CHARREP_VISITED = 'x';
+	public static final char CHARREP_SOL     = 'O';
+
+
+	//***** GUI *****//
+	public static final int SCALE = 10;
+}

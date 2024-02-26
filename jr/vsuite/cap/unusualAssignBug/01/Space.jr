@@ -1,0 +1,83 @@
+import java.awt.Graphics;
+import java.util.ArrayList;
+
+public class Space extends Cell{
+	private int        m_index;
+	private int        m_eqClass;
+	private boolean    m_hasVisited;
+	private Space      m_previous;
+
+	//***** CONSTRUCTOR *****//
+	public Space(int x,int y,int index){
+		this(x,y,index,-1);
+	}
+	public Space(int x,int y,int index,int eqClass){
+		super(x,y);
+		SetIndex(index);
+		SetEqClass(eqClass);
+		SetVisited(false);
+		SetPrevious(null);
+		SetCharRep(Const.CHARREP_SPACE);
+	}
+
+
+	//***** SET METHODS *****//
+	private void SetIndex(int index){
+		m_index = index;
+	}
+	public void SetEqClass(int eqClass){
+		m_eqClass = eqClass;
+	}
+	public void SetVisited(boolean visited){
+		m_hasVisited = visited;
+		SetCharRep(Const.CHARREP_VISITED);
+	}
+	public void SetPrevious(Space s){
+		m_previous = s;
+	}
+
+	
+	//***** ACCESSOR METHODS *****//	
+	public int GetIndex(){
+		return m_index;
+	}
+	public int GetEqClass(){
+		return m_eqClass;
+	}
+	public boolean HasVisited(){
+		return m_hasVisited;
+	}
+	public Space GetPrevious(){
+		return m_previous;
+	}
+	public ArrayList<Space> GetAdjSpace(Maze m){
+		ArrayList<Space> adj = new ArrayList<Space>();
+		
+		int leftX  = m_x-1;
+		int rightX = m_x+1;
+		int topY   = m_y-1;
+		int botY   = m_y+1;
+
+		Space left  = m.GetSpace(leftX,m_y);
+		Space right = m.GetSpace(rightX,m_y);
+		Space top   = m.GetSpace(m_x,topY);
+		Space bot   = m.GetSpace(m_x,botY);
+
+		if(left !=null){ adj.add(left);  }
+		if(right!=null){ adj.add(right); }
+		if(top  !=null){ adj.add(top);   }
+		if(bot  !=null){ adj.add(bot);   }
+
+		return adj;
+	}
+	
+	
+	//***** GUI *****//
+	public void Render(Graphics g){
+	}
+
+	//***** NON-GUI *****//
+	public void Print(){
+		System.out.print(m_charRep);
+	}
+}

@@ -1,0 +1,11 @@
+public class Main {
+   public static void main(String[] args) {
+
+     remote S s1 = new remote S();
+     remote S a = noop;
+     remote S a1 = s1;
+     remote S a2 = null;
+     remote S a3 = new remote S();
+
+   }
+}

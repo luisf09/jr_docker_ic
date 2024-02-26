@@ -1,0 +1,30 @@
+// dynamic arrays of ops
+
+public class r
+{
+  final int d1 = 1;
+
+  op void f1(int);
+  cap void (int) [] o = { f1 };
+
+
+  public r() {
+    for (int i = 0; i < d1; i++) {
+      send o[i] (100 + 10 * (i + 1));
+    }
+
+    for (int i = 0; i < d1; i++)
+	System.out.print(" " + o[i].length());
+    System.out.println("\t(o)");
+
+    for (int i = 0; i < d1; i++)
+    {
+      int n;
+      receive o[i](n);
+      System.out.print(" " + n);
+    }
+    System.out.println("\t(o&p)");
+
+    System.out.println("done");
+  }
+}

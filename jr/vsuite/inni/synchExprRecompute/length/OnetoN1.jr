@@ -1,0 +1,40 @@
+// this demonstrates an implementation deficiency:
+// the synch expr isn't re-evaluated -- to do so would require polling
+// in the implementation, which we try to avoid.
+// (but we'll put it in here in case we ever decide to change that behavior)
+//
+// (and, of course, N.B., if we change the impl in other ways,
+// the inni could test the st at a different time and find it true.)
+
+import edu.ucdavis.jr.JR;
+
+public class OnetoN1 {
+
+  op void syncSend();
+  op void other();
+
+  private process server {
+    inni void syncSend() st other.length() > 2 {
+	System.out.println("got syncSend");
+      }
+  }
+
+  private process c {
+    System.out.println("sending...");
+    send syncSend();
+    System.out.println("sent...");
+  }
+
+  private process d {
+    System.out.println("sleeping..."+other.length());
+    JR.nap(1000);
+    send other();
+    send other();
+    send other();
+    System.out.println("other.length..."+other.length());
+  }
+
+  public static void main(String[] args) {
+    new OnetoN1();
+  }
+}

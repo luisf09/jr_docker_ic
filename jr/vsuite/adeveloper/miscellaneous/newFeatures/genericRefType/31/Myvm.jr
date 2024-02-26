@@ -1,0 +1,9 @@
+public class Myvm extends vm {
+  private int id;
+  public Myvm(int id) {
+    this.id = id;
+  }
+  public op int getId() {
+    return id;
+  }
+}

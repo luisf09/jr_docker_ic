@@ -1,0 +1,22 @@
+Main.jr:6: incompatible types
+found   : <nulltype>
+required: int
+     int [] a = {noop,s1,null,new remote S()};
+                 ^
+Main.jr:6: incompatible types
+found   : remote S
+required: int
+     int [] a = {noop,s1,null,new remote S()};
+                      ^
+Main.jr:6: incompatible types
+found   : <nulltype>
+required: int
+     int [] a = {noop,s1,null,new remote S()};
+                         ^
+Main.jr:6: incompatible types
+found   : remote S
+required: int
+     int [] a = {noop,s1,null,new remote S()};
+                              ^
+Not generating jrGen/Main.java due to errors.
+4 errors

@@ -1,0 +1,28 @@
+import java.awt.Color;
+import java.awt.Graphics;
+
+public class IWall extends Wall{
+	//***** CONSTRUCTOR *****//
+	public IWall(int x,int y){
+		super(x,y,false);
+		SetCharRep(Const.CHARREP_IWALL);
+	}
+
+
+	//***** INHEIRITED METHODS *****//
+	public Space[] GetAdjSpace(Cell[][] grid){
+		return null;
+	}
+
+	//***** GUI *****//
+	public void Render(Graphics g){
+		g.setColor(Color.BLACK);
+		g.fillRect(m_panelX,m_panelY,Const.SCALE,Const.SCALE);
+	}
+
+
+	//***** NON-GUI *****//
+	public void Print(){
+		System.out.print(m_charRep);
+	}
+}

@@ -1,0 +1,19 @@
+begin
+++++ round: 0
+==== round: go1=1 go2=0
+p: 1
+after1: 1
+---- round: 0
+++++ round: 1
+==== round: go1=1 go2=1
+p: 1
+p: 1
+after1: 1
+after2: 1
+---- round: 1
+++++ round: 2
+==== round: go1=0 go2=1
+p: 1
+after2: 1
+---- round: 2
+done

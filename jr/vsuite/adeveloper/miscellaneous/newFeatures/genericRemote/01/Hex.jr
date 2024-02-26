@@ -1,0 +1,18 @@
+// 2013-03-16
+// bug: forgot to do erasure for remote constructor
+import java.util.Vector;
+
+public class Hex {
+	public static void main(String args[]) {
+
+	Vector<Object> board = new Vector<Object>();
+	int dim = 11;
+	int nTrials = 3;
+	board.add("hi");
+	board.add(34);
+	board.add("there");
+	remote TrialWorker trialWorker;
+	trialWorker = new remote TrialWorker(dim, board, nTrials);
+	trialWorker.print();
+	}
+}

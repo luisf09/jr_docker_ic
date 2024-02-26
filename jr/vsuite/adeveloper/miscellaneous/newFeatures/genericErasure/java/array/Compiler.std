@@ -1,0 +1,8 @@
+ResourceAllocatorA.java:4: warning: [unchecked] unchecked cast
+    E [] ret = (E []) new Object[n];
+                      ^
+  required: E[]
+  found:    Object[]
+  where E is a type-variable:
+    E extends Object declared in class ResourceAllocatorA
+1 warning

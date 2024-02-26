@@ -1,0 +1,18 @@
+import edu.ucdavis.jr.JR;
+import java.util.ArrayList;
+
+public class Example {
+    public static void main(String [] args) {
+      Object o = new remote MyInteger(33) on new vm();
+      ArrayList<Object> myarray = new ArrayList<Object>();
+      myarray.add(o);
+      for (Object m: myarray) {
+	remote MyInteger i = (remote MyInteger) m;
+	System.out.println(i.getValue());
+	MyInteger ii = i.getThis();
+	System.out.println(ii.localGetValue());
+      }
+      System.out.println("It ran.");
+    }
+
+}

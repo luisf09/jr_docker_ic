@@ -1,0 +1,12 @@
+Main.jr:5: incompatible types
+found   : remote S
+required: remote S[]
+     remote S [][] a = {noop,s1,null,new remote S()};
+                             ^
+Main.jr:5: incompatible types
+found   : remote S
+required: remote S[]
+     remote S [][] a = {noop,s1,null,new remote S()};
+                                     ^
+Not generating jrGen/Main.java due to errors.
+2 errors

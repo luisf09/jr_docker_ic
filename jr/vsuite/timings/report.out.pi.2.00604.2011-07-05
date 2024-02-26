@@ -1,0 +1,32 @@
+
+
+
+JR Timing Results
+
+Tue Jul  5 11:23:59 PDT 2011
+hostname: pi
+jr compiler version "2.00604 RAO (Thu Nov 25 07:15:02 PST 2010)"
+jr rts version "2.00604 RAO (Thu Nov 25 07:15:07 PST 2010)"
+javac 1.6.0_21
+java version "1.6.0_21"
+
+Results are given in microseconds
+
+     times    mean  median  test
+
+    500000    0.03    0.03  loop control overhead
+
+    100000  998.83  888.80  local call, optimized
+     10000 1900.50 1563.00  interresource call, no new process
+      2000 9842.50 7717.50  interresource call, new process
+      5000 5284.00 3785.00  process create/destroy
+
+    200000 3681.99 3754.05  semaphore P only
+    200000    6.07    7.78  semaphore V only
+    200000 3867.66 3886.18  semaphore pair
+     10000 3248.90 2026.50  semaphore requiring context switch
+
+     10000 5011.20 3986.00  asynchronous send/receive
+      5000 4598.20 3960.00  message passing requiring context switch
+
+      2000 10911.50 9467.50  rendezvous

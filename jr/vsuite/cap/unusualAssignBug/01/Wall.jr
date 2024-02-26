@@ -1,0 +1,22 @@
+public abstract class Wall extends Cell{
+	private boolean m_isRemovable;
+	
+	//***** CONSTRUCTOR *****//
+	public Wall(int x,int y,boolean removable){
+		super(x,y);
+		SetRemovable(removable);
+	}
+
+	
+	//***** SET METHODS *****//
+	protected void SetRemovable(boolean removable){
+		m_isRemovable = removable;
+	}
+
+	
+	//***** ACCESSOR METHODS *****//
+	public boolean IsRemovable(){
+		return m_isRemovable;
+	}
+	public abstract Space[] GetAdjSpace(Cell[][] grid);
+}

@@ -1,0 +1,106 @@
+import java.util.ArrayList;
+
+public class MazeSolver{
+	private static final int MAX_WORKERS = 3;
+	private static final int DEFAULT_START_X = 1;
+	private static final int DEFAULT_START_Y = 1;
+	private static int DEFAULT_END_X;
+	private static int DEFAULT_END_Y;
+
+	private Maze m_curMaze;
+	private int  m_startX;
+	private int  m_startY;
+	private int  m_endX;
+	private int  m_endY;
+
+	private static op void done();
+	private static op void bag(Space);
+	private static op void answer(int,ArrayList<Space>);
+
+	//***** CONSTRUCTOR *****//
+	public MazeSolver(){
+		m_curMaze = null;
+	}
+
+
+	//***** SOLVING-RELATED METHODS *****//
+	public op void SolveMaze(Maze m, cap void(Space) update, cap void(int,ArrayList<Space>) success){
+		if(m==null){ return; }
+
+		SetCurMaze(m);
+		m_endX = DEFAULT_END_X;
+		m_endY = DEFAULT_END_Y;
+		call Manager(update,success);
+	}
+	private op void Manager(cap void(Space) update,cap void(int,ArrayList<Space>) success){
+		Space start = (Space) m_curMaze.GetCell(DEFAULT_START_X,DEFAULT_START_Y);
+		int id;
+		ArrayList<Space> solutionPath;
+	
+		send bag(start);
+		for(int i=0; i<MAX_WORKERS; i++){
+			send SimpleBFSWorker(i,update);
+		}
+
+		receive answer(id,solutionPath);
+		
+		for(int i=0; i<MAX_WORKERS-1; i++){ 
+			send done();
+		}
+
+		System.out.println("Worker "+id+" found the solution path");
+		
+		for(int i=0; i<solutionPath.size(); i++){
+			Space s = solutionPath.get(i);
+			s.SetCharRep('o');
+		}
+	}
+	private op void SimpleBFSWorker(int id, cap void(Space) update){
+		while(true){
+			inni void bag(Space curSpace) st done.length()==0{
+				curSpace.SetVisited(true);
+		
+				if(IsEnd(curSpace.GetX(),curSpace.GetY())){
+					ArrayList<Space> solutionPath = new ArrayList<Space>();
+							
+					for(Space s=curSpace; s!=null; s=s.GetPrevious()){
+						solutionPath.add(0,s);
+					}
+				
+					send answer(id,solutionPath);
+					break;
+				}	
+				else{
+					ArrayList<Space> adj = curSpace.GetAdjSpace(m_curMaze);
+					int length = adj.size();
+	
+					for(int i=0; i<length; i++){
+						Space s = adj.get(i);
+
+						if(!s.HasVisited()){
+							s.SetPrevious(curSpace);
+							send bag(s);
+						}
+					}
+				}
+			}
+			[] void done(){
+				break;
+			}
+		}
+	}
+
+
+	//***** SET METHODS *****//
+	private void SetCurMaze(Maze m){
+		m_curMaze = m;
+		DEFAULT_END_X = m.GetGridWidth()-2;
+		DEFAULT_END_Y = m.GetGridHeight()-2;
+	}
+
+
+	//***** SUPPORT METHODS *****//
+	private boolean IsEnd(int x, int y){
+		return (x==m_endX && y==m_endY);
+	}
+}

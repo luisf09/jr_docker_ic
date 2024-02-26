@@ -1,0 +1,8 @@
+public class Main {
+   public static void main(String[] args) {
+
+     op void f1(int);
+     cap void (int) [][] o = {f1,noop,f1, new op void (int)};
+
+   }
+}

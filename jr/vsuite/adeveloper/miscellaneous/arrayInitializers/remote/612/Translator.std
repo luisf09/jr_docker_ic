@@ -1,0 +1,8 @@
+Main.jr:5: illegal initializer for remote S
+     remote S [] a = {{s1},{noop,s1,null,new remote S()}};
+                      ^
+Main.jr:5: illegal initializer for remote S
+     remote S [] a = {{s1},{noop,s1,null,new remote S()}};
+                           ^
+Not generating jrGen/Main.java due to errors.
+2 errors

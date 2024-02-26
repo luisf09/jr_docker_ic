@@ -1,0 +1,8 @@
+import edu.ucdavis.jr.JR;
+public class Model {
+
+  private static op double workerRequest(char);
+  private static op double workerRequest(char);
+  public static void main(String [] args) {
+  }
+}

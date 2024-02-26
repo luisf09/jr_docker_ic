@@ -1,0 +1,27 @@
+public class Main {
+   public static void main(String[] args) {
+
+     op void f1(int);
+     cap void (int) o = f1;
+     cap void (int) o1 = o;
+     cap void (int) o2 = null;
+     cap void (int) o3 = noop;
+     cap void (int) o4 = new op void(int);
+
+     send f1(1);
+     send o(2);
+     send o1(3);
+     send o3(4);
+     send o4(5);
+
+     while (f1.length() > 0) {
+       int y;
+       receive f1(y);
+       System.out.println("f1 got "+y);
+     }
+     int z;
+     receive o4(z);
+     System.out.println("o4 got "+z);
+
+   }
+}

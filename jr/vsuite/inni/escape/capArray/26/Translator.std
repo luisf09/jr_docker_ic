@@ -1,0 +1,5 @@
+minimum.jr:16: Return required within 'inni' statement servicing passValue.  'break' statement on line 19 exits 'inni' statement before return/reply/forward.
+            inni int passValue[0](){
+                 ^
+Not generating jrGen/minimum.java due to errors.
+1 error

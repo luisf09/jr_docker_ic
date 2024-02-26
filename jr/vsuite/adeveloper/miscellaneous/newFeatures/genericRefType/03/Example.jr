@@ -1,0 +1,10 @@
+import edu.ucdavis.jr.JR;
+import java.util.ArrayList;
+
+public class Example {
+    public static void main(String [] args) {
+        ArrayList<remote MyInteger> myarray = new ArrayList<remote MyInteger>();
+        System.out.println("It ran.");
+    }
+
+}

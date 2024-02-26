@@ -1,0 +1,136 @@
+public class MazeGenerator{
+	private int     m_gridHeight;
+	private int     m_gridWidth;
+	private Wall [] m_internalWalls;
+	private Space[] m_spaces;
+
+	
+	//***** CONSTRUCTOR *****//
+	public MazeGenerator(){}
+
+
+	//***** GENERATOR RELATED METHODS *****//
+	public Cell[][] GenMaze(int height, int width){
+		Cell[][] grid = InitGrid(height,width);
+		Union(grid);
+		return grid;
+	}
+	public Cell[][] InitGrid(int height, int width){
+		m_gridHeight         = 2*height+1;
+		m_gridWidth          = 2*width+1;
+		int numInternalWalls = 2*height*width-height-width;
+		int numSpaces        = height*width;
+		int spaceIndex		 = 0;
+
+		m_internalWalls = new Wall[numInternalWalls];
+		m_spaces        = new Space[numSpaces];
+		Cell[][] grid   = new Cell[m_gridWidth][m_gridHeight];
+
+		for(int i=0; i<m_gridWidth; i++){
+			for(int j=0; j<m_gridHeight; j++){
+				if(IsSpace(i,j)){
+					grid[i][j] = new Space(i,j,spaceIndex);
+					m_spaces[spaceIndex++] = (Space) grid[i][j];
+				}
+				else{
+					Wall w;
+				
+					if(IsEdge(i,j)){
+						if(IsIntersection(i,j)){
+							w = new IWall(i,j); 
+						}
+						else if(IsVertical(i,j)){
+							w = new VWall(i,j,false);
+						}
+						else{
+							w = new HWall(i,j,false);
+						}
+					}
+					else if(IsIntersection(i,j)){
+						w = new IWall(i,j);
+					}
+					else{
+						if(IsVertical(i,j)){
+							w = new VWall(i,j,true);
+						}
+						else{
+							w = new HWall(i,j,true);
+						}
+
+						AddInternalWall(w);
+					}
+					grid[i][j] = w;
+				}
+			}
+		}
+
+		return grid;
+	}
+
+
+	//****** UNION/FIND *****//
+	private void Union(Cell[][] grid){
+		for(Wall w : m_internalWalls){
+			Union(w,grid);
+		}
+	}
+	private void Union(Wall w,Cell[][] grid){
+		Space[] s = w.GetAdjSpace(grid);
+		
+		int eq0 = Find(s[0]);
+		int eq1 = Find(s[1]);
+		
+		if(eq0==eq1){ return; }
+
+		int x = w.GetX();
+		int y = w.GetY();
+
+		if(eq0<eq1){
+			m_spaces[eq1].SetEqClass(eq0);
+			grid[x][y] = new Space(x,y,eq0);
+		}
+		else{
+			m_spaces[eq0].SetEqClass(eq1);
+			grid[x][y] = new Space(x,y,eq1);
+		}
+	}
+	private int Find(Space s){
+		int eq = s.GetEqClass();
+
+		if(eq==-1){
+			return s.GetIndex();
+		}
+		else{
+			int root = Find(m_spaces[eq]);
+			s.SetEqClass(root);
+			return root;
+		}
+	}
+
+
+	//***** SUPPORT *****//
+	private void AddInternalWall(Wall w){
+		int randKey = (int) (Math.random() * m_internalWalls.length);
+		
+		while(m_internalWalls[randKey]!=null){
+			randKey = (randKey+1)%m_internalWalls.length;
+		}
+
+		m_internalWalls[randKey] = w;
+	}
+	private boolean IsSpace(int i, int j){
+		return (i%2==1 && j%2==1);
+	}
+	private boolean IsEdge(int i, int j){
+		return (i==0||j==0||i==m_gridWidth-1||j==m_gridHeight-1);
+	}
+	private boolean IsIntersection(int i,int j){
+		return ((i%2)==(j%2));
+	}
+	private boolean IsVertical(int i, int j){
+		return (i%2==0 && j%2==1);
+	}
+	private boolean IsHorizontal(int i,int j){
+		return (i%2==1 && j%2==0);
+	}
+}
