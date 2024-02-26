@@ -7,6 +7,8 @@ services:
     restart: always
     command: ["sleep", "infinity"]
     volumes:
-      - "./jr_programs/:/jr_code:rw"
-      - "./jr/:/usr/local/jr:rw"
+      - ./jr_programs/:/jr_code
+      - ./jr/:/usr/local/jr
+        # - "./jr_programs/:/jr_code:rw"
+        # - "./jr/:/usr/local/jr:rw"
     network_mode: bridge
