@@ -1,4 +1,4 @@
-## Introduccion a la Concurrencia - UNTDF
+## Introducción a la Concurrencia - UNTDF
 
 # README jr_docker_ic
 
@@ -6,27 +6,27 @@
 
 This is a docker container for JR Concurrent Language programming
 
-# For clone repo
+# Clone repo
 
 git clone https://github.com/luisf09/jr_docker_ic.git
 
-# For use container
+# Up container
 
 docker compose up -d
 
-# For enter to container
+# Enter to container
 
 docker compose exec -it jr_docker_ic bash
 
-# For execute a jr program
+# Execute a jr program
 
 jr program_name
 
-# For rebuild container
+# Rebuild container
 
 docker compose up -d --build
 
-# For down container
+# Down container
 
 docker compose down
 
@@ -34,19 +34,20 @@ docker compose down
 
 docker stop id_container
 
-# For list containers
+# List containers
 
 docker ps
 
-# For list images
+# List images
 
 docker images ls
 
-# For remove image
+# Remove image
 
 docker rmi id_image
 
 ## Author
 
 Luis Rojas -> lrojasflores@untdf.edu.ar
+
 Horacio Pendenti -> hpendenti@untdf.edu.ar
