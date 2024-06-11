@@ -2,52 +2,57 @@
 
 # README jr_docker_ic
 
-### Getting started
+## Getting started
 
 This is a docker container for JR Concurrent Language programming
 
-# Clone repo
+### Clone repo
 
-git clone https://github.com/luisf09/jr_docker_ic.git
+    git clone https://github.com/luisf09/jr_docker_ic.git
 
-# Up container
+### Up container
 
-docker compose up -d
+> ***En caso de necesitar una imagen que no sea basada en debian renombrar DockerfileAlpine -> Dockerfile***
 
-# Enter to container
+    docker compose up -d
 
-docker compose exec -it jr_docker_ic bash
+### Enter to container
 
-# Execute a jr program
+    docker exec -it jr_docker_ic bash
 
-jr program_name
+> Si usaste el dockerfile basado en alpine reemplazar bash por sh
+    
+    
+### Execute a jr program
 
-# Rebuild container
+    jr program_name
 
-docker compose up -d --build
+### Rebuild container
 
-# Down container
+    docker compose up -d --build
 
-docker compose down
+### Down container
 
-# or
+    docker compose down
 
-docker stop id_container
+### or
 
-# List containers
+    docker stop id_container
 
-docker ps
+### List containers
 
-# List images
+    docker ps
 
-docker images ls
+### List images
 
-# Remove image
+    docker images ls
 
-docker rmi id_image
+### Remove image
+
+    docker rmi id_image
 
 ## Author
 
-Luis Rojas -> lrojasflores@untdf.edu.ar
+> Luis Rojas -> lrojasflores@untdf.edu.ar
 
-Horacio Pendenti -> hpendenti@untdf.edu.ar
+> Horacio Pendenti -> hpendenti@untdf.edu.ar
