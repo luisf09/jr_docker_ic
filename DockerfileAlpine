@@ -1,0 +1,41 @@
+FROM alpine:latest
+
+# Instalar OpenJDK 8, Ant, Perl y tcsh
+RUN apk update && \
+    apk upgrade && \
+    apk add openjdk8-jdk && \
+    apk add perl && \
+    apk add tcsh && \
+    apk add wget
+
+# Configurar variables de entorno
+ENV ANT_VERSION=1.10.14
+ENV ANT_HOME=/opt/ant
+
+# Descargar y configurar Apache Ant
+RUN wget https://dlcdn.apache.org//ant/binaries/apache-ant-${ANT_VERSION}-bin.tar.gz && \
+    tar -xzvf apache-ant-${ANT_VERSION}-bin.tar.gz -C /opt && \
+    ln -s /opt/apache-ant-${ANT_VERSION} /opt/ant && \
+    rm apache-ant-${ANT_VERSION}-bin.tar.gz
+
+# Configurar JAVA_HOME
+ENV JAVA_HOME /usr/lib/jvm/java-1.8-openjdk
+
+# Añadir Ant al PATH
+ENV PATH "$PATH:$ANT_HOME/bin"
+
+# Instalar JR (asumiendo que ya tienes los archivos de JR listos para copiar)
+COPY jr /usr/local/jr
+
+# Configurar JAVA_HOME
+ENV JAVA_HOME /usr/lib/jvm/java-1.8-openjdk
+
+# Configurar JR_HOME y añadir JR al PATH
+ENV JR_HOME /usr/local/jr
+ENV PATH "$PATH:$JR_HOME/bin"
+
+# Definir el directorio de trabajo
+WORKDIR /jr_code
+
+# Comando por defecto
+CMD ["sh"]
